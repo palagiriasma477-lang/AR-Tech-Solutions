@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment & Secrets (Never commit credentials)
+.env
+*/.env
+*.env
+.env.local
+
+# SQLite Database
+*.db
+*.sqlite
+*.sqlite3
+backend/artechsolutions.db
+
+# Build outputs
+dist/
+*/dist/
+
+# Old duplicate folder
+forntend/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

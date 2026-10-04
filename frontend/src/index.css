@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================
+   AR TECH SOLUTIONS — MODERN CORPORATE DESIGN SYSTEM
+   Formal, Pleasant, Trustworthy & High-Converting
+   ========================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Core Brand Palette ── */
+  --navy-deep:     #080f1d;
+  --navy-dark:     #0f172a;
+  --navy-card:     #1e293b;
+  --navy-border:   rgba(255, 255, 255, 0.1);
+
+  /* ── Pleasant Tech Accents ── */
+  --accent-primary: #1d4ed8;       /* Deep Royal Tech Blue */
+  --accent-gradient:#2563eb;       /* Modern Vibrant Blue */
+  --accent-cyan:    #0284c7;       /* Refined Ocean Cyan */
+  --accent-teal:    #0d9488;       /* Deep Emerald Teal */
+  --accent-amber:   #d97706;       /* Warm Corporate Amber Gold */
+  --accent-gold:    #f59e0b;       /* Bright Amber */
+
+  /* ── Clean Formal Neutrals ── */
+  --bg-page:       #f8fafc;        /* Crisp Slate 50 */
+  --bg-surface:    #ffffff;        /* Pure White Card */
+  --bg-subtle:     #f1f5f9;        /* Soft Slate 100 */
+  --bg-alt:        #edf2f7;
+
+  /* ── Typography & Text ── */
+  --text-headline: #0f172a;        /* Deep Charcoal Slate */
+  --text-body:     #334155;        /* Legible Medium Slate */
+  --text-muted:    #64748b;        /* Subtle Secondary Slate */
+  --text-light:    #94a3b8;
+  --text-on-dark:  #f8fafc;
+
+  /* ── Borders & Outlines ── */
+  --border-light:  #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --border-focus:  #2563eb;
+
+  /* ── Elevation Shadows ── */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 6px 20px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 0 25px rgba(37, 99, 235, 0.2);
+
+  /* ── Radii & Transitions ── */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Typography Stack ── */
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background-color: var(--bg-page);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-headline);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-heading);
+}
+
+/* ── Container Layouts ── */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+  background-color: var(--bg-surface);
+  position: relative;
+}
+
+.section-alt {
+  padding: 96px 0;
+  background-color: var(--bg-page);
+  position: relative;
+}
+
+.section-dark {
+  padding: 96px 0;
+  background-color: var(--navy-dark);
+  color: var(--text-on-dark);
+  position: relative;
+}
+
+.section-deep {
+  padding: 96px 0;
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-dark) 100%);
+  color: var(--text-on-dark);
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ── Badges & Section Headers ── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: var(--accent-primary);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-badge-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  color: #38bdf8;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  color: var(--text-headline);
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.section-title-dark {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.section-title span,
+.section-title-dark span {
+  background: linear-gradient(135deg, #2563eb, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 52px;
+  line-height: 1.7;
+}
+
+.section-sub-dark {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  max-width: 620px;
+  margin: 0 auto 52px;
+  line-height: 1.7;
+}
+
+/* ── Modern Premium Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  border: none;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(37, 99, 235, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-outline-blue {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 1.5px solid var(--accent-primary);
+}
+
+.btn-outline-blue:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.btn-white {
+  background: #ffffff;
+  color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+  font-weight: 700;
+}
+
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: #f8fafc;
+}
