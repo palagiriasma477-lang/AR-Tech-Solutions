@@ -2325,3 +2325,461 @@ textarea.form-control {
     padding: 14px 18px;
   }
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   17. LIVE ENGINEERING LAB WORKBENCH ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.lab-section {
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
+              linear-gradient(180deg, #091122 0%, #0d182e 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lab-tabs {
+  display: inline-flex;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px;
+  border-radius: var(--radius-full);
+  margin-top: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lab-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lab-tab-btn.active {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workstation-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.workstation-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-4px);
+}
+
+.workstation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.station-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.station-avatar {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.station-title h4 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin: 0 0 2px;
+}
+
+.station-lead {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.live-status-pill.status-amber {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.status-dot-green {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: badgePulse 2s infinite;
+}
+
+.status-dot-amber {
+  width: 8px;
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: badgePulse 2s infinite;
+}
+
+/* Desk Visuals */
+.desk-visual {
+  background: #080f1d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-setup {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .screen-setup {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screen-monitor {
+  background: #0d1527;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.screen-header-bar {
+  background: #152238;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.screen-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.screen-dot.red    { background: #ef4444; }
+.screen-dot.yellow { background: #f59e0b; }
+.screen-dot.green  { background: #10b981; }
+
+.screen-title-text {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-family: monospace;
+  margin-left: 4px;
+}
+
+.screen-ide-body {
+  padding: 12px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.code-line.num {
+  color: #64748b;
+}
+
+.code-line .kwd { color: #c084fc; font-weight: 700; }
+.code-line .fn  { color: #38bdf8; }
+.code-line .tag { color: #f59e0b; }
+
+.active-code {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 2px solid #38bdf8;
+  padding-left: 4px;
+}
+
+.cursor-blink {
+  color: #38bdf8;
+  font-weight: 900;
+  animation: blinkCursor 0.9s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.screen-terminal-body {
+  padding: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.term-line.success { color: #34d399; }
+.term-line.info    { color: #60a5fa; }
+.term-line.warn    { color: #fbbf24; }
+.term-line.active  { color: #e2e8f0; margin-top: 6px; }
+
+.term-blink {
+  animation: blinkCursor 0.8s infinite;
+  color: #10b981;
+}
+
+/* ECE Bench Setup */
+.bench-setup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .bench-setup {
+    grid-template-columns: 1fr;
+  }
+}
+
+.breadboard-box {
+  background: #0f1c33;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mcu-chip {
+  background: #1e293b;
+  border: 1.5px solid #475569;
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chip-label {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: 0.05em;
+}
+
+.mcu-leds {
+  display: flex;
+  gap: 6px;
+}
+
+.mcu-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.led-pwr { background: #ef4444; box-shadow: 0 0 6px #ef4444; }
+.led-tx  { background: #10b981; }
+.led-rx  { background: #38bdf8; }
+
+.pulsing-led {
+  animation: ledPulse 0.6s infinite alternate;
+}
+
+@keyframes ledPulse {
+  from { opacity: 0.3; transform: scale(0.9); }
+  to   { opacity: 1;   transform: scale(1.2); box-shadow: 0 0 8px currentColor; }
+}
+
+.jumper-wires {
+  display: flex;
+  gap: 8px;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.wire {
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+}
+.wire-red   { background: #ef4444; }
+.wire-blue  { background: #3b82f6; }
+.wire-green { background: #10b981; }
+
+.sensor-module {
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sensor-name {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.sensor-telemetry {
+  font-family: monospace;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Oscilloscope */
+.oscilloscope-box {
+  background: #050d1a;
+  border: 1.5px solid #1e3a8a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scope-header, .scope-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.scope-grid {
+  height: 70px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 10%, transparent 11%);
+  background-size: 8px 8px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+  margin: 6px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.scope-wave-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scope-wave-path {
+  fill: none;
+  stroke: #10b981;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px #10b981);
+}
+
+/* Metrics Row */
+.station-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.st-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.st-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+.st-metric strong {
+  font-size: 0.82rem;
+  color: #f8fafc;
+}
+
+/* Sync Banner */
+.lab-sync-banner {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(2, 132, 199, 0.15) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.sync-pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: badgePulse 1.8s infinite;
+  flex-shrink: 0;
+}

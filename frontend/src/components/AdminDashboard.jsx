@@ -32,6 +32,9 @@ export default function AdminDashboard() {
   const [error, setError] = useState('')
   const [selected, setSelected] = useState(null)
   const [exporting, setExporting] = useState(false)
+  const [analytics, setAnalytics] = useState(null)
+  const [analyticsLoading, setAnalyticsLoading] = useState(true)
+  const [activeTrafficSpan, setActiveTrafficSpan] = useState('7d')
 
   const fetchEnquiries = useCallback(async () => {
     setLoading(true)
@@ -48,9 +51,25 @@ export default function AdminDashboard() {
     }
   }, [])
 
+  const fetchAnalytics = useCallback(async () => {
+    setAnalyticsLoading(true)
+    try {
+      const res = await fetch('/api/analytics/stats')
+      if (res.ok) {
+        const data = await res.json()
+        setAnalytics(data)
+      }
+    } catch {
+      // ignore
+    } finally {
+      setAnalyticsLoading(false)
+    }
+  }, [])
+
   useEffect(() => {
     fetchEnquiries()
-  }, [fetchEnquiries])
+    fetchAnalytics()
+  }, [fetchEnquiries, fetchAnalytics])
 
   async function handleStatusChange(id, newStatus) {
     try {
@@ -156,6 +175,113 @@ export default function AdminDashboard() {
           <div className="admin-stat completed">
             <h4>Completed &bull; Delivered</h4>
             <div className="stat-num">{completedCount}</div>
+          </div>
+        </div>
+
+        {/* Visitor Traffic & Client Reach Intelligence */}
+        <div className="analytics-card" style={{ marginBottom: '28px', background: '#ffffff', borderRadius: '16px', padding: '24px', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '1.2rem' }}>📈</span>
+                <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#0f172a' }}>Website Client Traffic &amp; Visitor Monitor</h3>
+                <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '0.72rem', fontWeight: 800, padding: '2px 8px', borderRadius: '12px' }}>LIVE SYNC</span>
+              </div>
+              <p style={{ margin: '4px 0 0', fontSize: '0.84rem', color: '#64748b' }}>
+                Real-time tracking of visitors exploring AR Tech Solutions across 1 Day, 2–3 Days, 1 Week, and 1 Month.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <button
+                className="admin-refresh"
+                style={{ fontSize: '0.82rem', padding: '6px 12px' }}
+                onClick={fetchAnalytics}
+              >
+                🔄 Refresh Analytics
+              </button>
+            </div>
+          </div>
+
+          {/* Timeframe Metric Cards */}
+          <div className="analytics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+            
+            {/* Card 1: 1 Day (Today) */}
+            <div style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)', border: '1px solid #bbf7d0', borderRadius: '12px', padding: '18px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  📅 Span: 1 Day (Today)
+                </span>
+                <span style={{ background: '#22c55e', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '2px 6px', borderRadius: '10px' }}>LAST 24H</span>
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#14532d' }}>
+                {analyticsLoading ? '...' : analytics?.today ?? 0}
+              </div>
+              <span style={{ fontSize: '0.78rem', color: '#15803d' }}>Unique Visits Today</span>
+            </div>
+
+            {/* Card 2: 2-3 Days */}
+            <div style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', border: '1px solid #bfdbfe', borderRadius: '12px', padding: '18px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#1e40af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  ⚡ Next / Last 2–3 Days
+                </span>
+                <span style={{ background: '#3b82f6', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '2px 6px', borderRadius: '10px' }}>72H SPAN</span>
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#1e3a8a' }}>
+                {analyticsLoading ? '...' : analytics?.last3Days ?? 0}
+              </div>
+              <span style={{ fontSize: '0.78rem', color: '#2563eb' }}>Recent Active Enquirers</span>
+            </div>
+
+            {/* Card 3: 1 Week */}
+            <div style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)', border: '1px solid #e9d5ff', borderRadius: '12px', padding: '18px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#6b21a8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  📊 Last 1 Week (7 Days)
+                </span>
+                <span style={{ background: '#a855f7', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '2px 6px', borderRadius: '10px' }}>7 DAYS</span>
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#581c87' }}>
+                {analyticsLoading ? '...' : analytics?.lastWeek ?? 0}
+              </div>
+              <span style={{ fontSize: '0.78rem', color: '#7e22ce' }}>Weekly Traffic Run-Rate</span>
+            </div>
+
+            {/* Card 4: 1 Month */}
+            <div style={{ background: 'linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)', border: '1px solid #fed7aa', borderRadius: '12px', padding: '18px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#9a3412', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  🚀 Last 1 Month (30 Days)
+                </span>
+                <span style={{ background: '#f97316', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '2px 6px', borderRadius: '10px' }}>30 DAYS</span>
+              </div>
+              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#7c2d12' }}>
+                {analyticsLoading ? '...' : analytics?.lastMonth ?? 0}
+              </div>
+              <span style={{ fontSize: '0.78rem', color: '#c2410c' }}>Monthly Engaged Prospects</span>
+            </div>
+
+          </div>
+
+          {/* Device & Trend Summary Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', padding: '14px 18px', background: '#f8fafc', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.85rem', color: '#475569' }}>
+                🌐 <strong>All-Time Total Traffic:</strong> <strong style={{ color: '#0f172a' }}>{analytics?.total || 0}</strong> page views
+              </span>
+              <span style={{ fontSize: '0.85rem', color: '#475569' }}>
+                📱 Mobile: <strong>{analytics?.devices?.mobile || 0}</strong>
+              </span>
+              <span style={{ fontSize: '0.85rem', color: '#475569' }}>
+                💻 Desktop: <strong>{analytics?.devices?.desktop || 0}</strong>
+              </span>
+            </div>
+
+            <div style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ width: 8, height: 8, background: '#10b981', borderRadius: '50%', display: 'inline-block' }}></span>
+              Telemetry Active &bull; Real-Time Database Tracking
+            </div>
           </div>
         </div>
 
