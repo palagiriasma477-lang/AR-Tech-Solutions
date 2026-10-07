@@ -1,33 +1,97 @@
 const steps = [
-  { num: 1, emoji: '📝', title: '1. Submit Enquiry', desc: 'Fill in your project details & scope using our form.' },
-  { num: 2, emoji: '💬', title: '2. Discuss Scope', desc: 'Direct WhatsApp/phone consultation to refine requirements.' },
-  { num: 3, emoji: '🎯', title: '3. Finalize Tech Stack', desc: 'Confirm architecture, libraries, milestone dates & quote.' },
-  { num: 4, emoji: '📦', title: '4. Select Package', desc: 'Pick the package matching your budget and complexity.' },
-  { num: 5, emoji: '⚙️', title: '5. Agile Development', desc: 'Engineered with clean code, modular components & database.' },
-  { num: 6, emoji: '🔍', title: '6. Rigorous QA Testing', desc: 'Validation across responsive viewports, edge cases & errors.' },
-  { num: 7, emoji: '🚀', title: '7. Final Delivery', desc: 'Complete source code, deployment setup & documentation guide.' },
-  { num: 8, emoji: '🛡️', title: '8. Post-Delivery Support', desc: 'Assistance during college reviews, viva prep & maintenance.' },
+  {
+    num: '01',
+    phase: 'Discovery',
+    title: 'Submit Scope & Goals',
+    desc: 'Share your problem statement, syllabus guidelines, IEEE paper, or commercial requirements.',
+    icon: '📝',
+  },
+  {
+    num: '02',
+    phase: 'Consultation',
+    title: '1-on-1 Engineering Scope',
+    desc: 'Direct consultation on WhatsApp or phone to finalize feature list, libraries, and milestone timeline.',
+    icon: '💬',
+  },
+  {
+    num: '03',
+    phase: 'Architecture',
+    title: 'Tech Stack & DB Design',
+    desc: 'Selection of optimal frameworks, schema normalization, and modular component architecture.',
+    icon: '⚙️',
+  },
+  {
+    num: '04',
+    phase: 'Development',
+    title: 'Agile Clean Code Build',
+    desc: 'Engineered with clean code commenting, responsive layouts, API security, and error handling.',
+    icon: '💻',
+  },
+  {
+    num: '05',
+    phase: 'Testing',
+    title: 'Rigorous QA & Edge Cases',
+    desc: 'Validation across responsive viewports, DB query stress, and zero-error code compilation.',
+    icon: '🔍',
+  },
+  {
+    num: '06',
+    phase: 'Setup',
+    title: 'Live Laptop Screen-Share',
+    desc: 'We execute and verify the complete project directly on your laptop via AnyDesk / TeamViewer.',
+    icon: '🖥️',
+  },
+  {
+    num: '07',
+    phase: 'Delivery',
+    title: 'Complete Deliverable Handover',
+    desc: '100% source code, PPT presentation slides, and complete IEEE-standard project documentation.',
+    icon: '📦',
+  },
+  {
+    num: '08',
+    phase: 'Guidance',
+    title: 'Viva & Post-Review Support',
+    desc: 'In-depth viva Q&A coaching and continuous assistance until final academic or client approval.',
+    icon: '🎓',
+  },
 ]
 
 export default function Process() {
   return (
-    <section className="section-alt" id="process">
+    <section className="section-dark modern-process-section" id="process">
       <div className="container">
         <div className="text-center">
-          <span className="section-badge">Structured Delivery</span>
-          <h2 className="section-title">End-to-End Engineering Workflow</h2>
-          <p className="section-sub">
+          <div className="section-badge-animated">
+            <span className="badge-glow-dot"></span>
+            <span>Structured Delivery Pipeline</span>
+          </div>
+          <h2 className="section-title-dark">End-to-End Engineering Workflow</h2>
+          <p className="section-sub-dark">
             A transparent 8-step methodology ensuring your project finishes on schedule, runs without bugs,
             and meets every academic and business criterion.
           </p>
         </div>
 
-        <div className="process-steps">
-          {steps.map((s) => (
-            <div className="process-step" key={s.num}>
-              <div className="step-num">{s.emoji}</div>
-              <h4>{s.title}</h4>
-              <p>{s.desc}</p>
+        {/* Process Circuit Grid with Connected Conduit Styling */}
+        <div className="modern-process-grid">
+          {steps.map((s, idx) => (
+            <div className="modern-process-card" key={s.num}>
+              {/* Step Top Header */}
+              <div className="process-card-top">
+                <span className="step-badge-num">{s.num}</span>
+                <span className="step-phase-badge">{s.phase}</span>
+                <span className="step-icon-emoji">{s.icon}</span>
+              </div>
+
+              {/* Title & Description */}
+              <h4 className="step-title-text">{s.title}</h4>
+              <p className="step-desc-text">{s.desc}</p>
+
+              {/* Connector line indicator */}
+              <div className="step-progress-indicator">
+                <div className="step-progress-fill"></div>
+              </div>
             </div>
           ))}
         </div>
