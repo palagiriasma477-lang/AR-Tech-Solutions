@@ -444,7 +444,7 @@ export default function EnquiryForm() {
                   {loading ? '⏳ Submitting Enquiry...' : '🚀 Submit Enquiry'}
                 </button>
 
-                <p style={{ fontSize: '0.78rem', color: '#94a3b8', textAlign: 'center', marginTop: '14px', margin: 0 }}>
+                <p style={{ fontSize: '0.78rem', color: '#94a3b8', textAlign: 'center', marginTop: '16px', marginBottom: 0 }}>
                   🔒 Your contact information is kept strictly confidential and only used to respond to your request.
                 </p>
               </form>

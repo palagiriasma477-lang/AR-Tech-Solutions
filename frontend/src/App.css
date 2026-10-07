@@ -273,9 +273,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  color: #2563eb;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
   padding: 8px 18px;
   border-radius: var(--radius-full);
   font-size: 0.86rem;
@@ -510,6 +510,9 @@
   border-radius: var(--radius-md);
   padding: 24px 22px;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .academic-card:hover {
@@ -540,12 +543,13 @@
    4.5. INTERACTIVE PROJECT ESTIMATOR & SCOPE CONFIGURATOR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .estimator-card {
+  max-width: 1140px;
+  margin: 32px auto 0;
   background: #ffffff;
   border-radius: 24px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08);
   padding: 40px;
-  margin-top: 24px;
   transition: all 0.3s ease;
 }
 
@@ -553,7 +557,7 @@
   display: grid;
   grid-template-columns: 1.25fr 0.95fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .estimator-controls {
@@ -705,6 +709,10 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .summary-badge {
@@ -894,6 +902,8 @@
    6. CUSTOMIZATION BANNER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .custom-banner {
+  max-width: 1140px;
+  margin: 0 auto;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
@@ -952,6 +962,9 @@
   text-align: center;
   box-shadow: var(--shadow-xs);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .process-step:hover {
@@ -971,6 +984,7 @@
   justify-content: center;
   font-size: 1.4rem;
   margin: 0 auto 16px;
+  flex-shrink: 0;
 }
 
 .process-step h4 {
@@ -984,6 +998,7 @@
   color: var(--text-muted);
   line-height: 1.55;
   margin: 0;
+  flex-grow: 1;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1001,6 +1016,9 @@
   border-radius: var(--radius-md);
   padding: 28px 24px;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .why-card:hover {
@@ -1043,6 +1061,9 @@
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .portfolio-card:hover {
@@ -1057,10 +1078,14 @@
   align-items: center;
   justify-content: center;
   font-size: 3.2rem;
+  flex-shrink: 0;
 }
 
 .portfolio-body {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .portfolio-type {
@@ -1082,12 +1107,14 @@
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 16px;
+  flex-grow: 1;
 }
 
 .portfolio-tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .portfolio-tag {
@@ -1208,7 +1235,7 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   color: #e2e8f0;
   font-size: 0.94rem;
