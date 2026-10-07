@@ -246,97 +246,87 @@
   margin: 0;
 }
 
-/* Hero Right Interactive Card Stack */
+/* Hero Right Interactive Card Showcase (Non-overlapping staggered cards with smooth floating animations) */
 .hero-visual {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
+  perspective: 1200px;
 }
 
 .hero-card-stack {
   position: relative;
-  width: 360px;
-  height: 380px;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
 }
 
 .hero-card {
-  position: absolute;
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(16px);
+  position: relative;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  padding: 24px 26px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  cursor: default;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #38bdf8;
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  font-size: 0.86rem;
-  font-weight: 700;
-  margin-bottom: 22px;
-}
-
-.badge-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #2563eb;
-  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
-  animation: badgePulse 2s infinite;
-}
-
-@keyframes badgePulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.pulse-btn {
-  position: relative;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pulse-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
-}
-
-.hero-card-main {
-  width: 330px;
-  bottom: 20px;
-  left: 15px;
-  z-index: 2;
-  border-left: 4px solid #38bdf8;
-  animation: floatGentle 5s ease-in-out infinite;
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
-}
-
+/* Card 1: Top Rated Deliverable Card (Offset to the right, floating gently) */
 .hero-card-behind {
-  width: 300px;
-  top: 15px;
-  right: 15px;
-  z-index: 1;
-  opacity: 0.85;
-  animation: floatGentle 6s ease-in-out infinite reverse;
+  margin-left: 36px;
+  border-top: 2px solid #f59e0b;
+  border-right: 1px solid rgba(245, 158, 11, 0.3);
+  animation: floatCardTop 6s ease-in-out infinite;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%);
 }
 
-@keyframes floatGentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.hero-card-behind:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 25px 50px -10px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  z-index: 10;
+}
+
+/* Card 2: Main Blueprint Card (Offset to the left, floating with opposite phase) */
+.hero-card-main {
+  margin-right: 36px;
+  border-left: 4px solid #38bdf8;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  animation: floatCardBottom 6s ease-in-out infinite 0.8s;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.85) 100%);
+}
+
+.hero-card-main:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #38bdf8;
+  box-shadow: 0 25px 50px -10px rgba(56, 189, 248, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  z-index: 10;
+}
+
+/* Non-colliding organic levitation animations */
+@keyframes floatCardTop {
+  0%, 100% {
+    transform: translateY(0px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatCardBottom {
+  0%, 100% {
+    transform: translateY(0px) rotate(-0.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
 }
 
 .hero-card-header {
@@ -363,15 +353,18 @@
 }
 
 .hero-card-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: linear-gradient(135deg, #f59e0b, #d97706);
   color: #ffffff;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
 }
 
 .hero-card-title {
@@ -379,19 +372,21 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94a3b8;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .hero-card-value {
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .hero-card-sub {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: #38bdf8;
+  line-height: 1.4;
 }
 
 .hero-pill-feature {
@@ -401,7 +396,7 @@
   background: rgba(56, 189, 248, 0.12);
   border: 1px solid rgba(56, 189, 248, 0.25);
   color: #7dd3fc;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
   font-weight: 600;
@@ -2204,6 +2199,7 @@ textarea.form-control {
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
   .hero p {
     margin: 0 auto 38px;
@@ -2215,7 +2211,15 @@ textarea.form-control {
     justify-content: center;
   }
   .hero-visual {
-    display: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .hero-card-behind,
+  .hero-card-main {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    text-align: left;
   }
   .packages-grid {
     grid-template-columns: 1fr;
