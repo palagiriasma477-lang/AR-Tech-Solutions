@@ -67,7 +67,12 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} AR Tech Solutions. All rights reserved &bull; Professional IT &amp; Academic Development.</p>
-          <p>Kadapa &amp; Rayachoti, Andhra Pradesh, India</p>
+          <p>
+            Kadapa &amp; Rayachoti, Andhra Pradesh, India &bull;{' '}
+            <a href="/admin" style={{ color: '#64748b', fontSize: '0.8rem', textDecoration: 'none' }} title="Admin Analytics & Enquiries Portal">
+              🔒 Admin Portal
+            </a>
+          </p>
         </div>
       </div>
     </footer>
