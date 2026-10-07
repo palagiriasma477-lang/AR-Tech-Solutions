@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Academic from './components/Academic'
+import ProjectEstimator from './components/ProjectEstimator'
 import CustomBanner from './components/CustomBanner'
 import WhyUs from './components/WhyUs'
 import Packages from './components/Packages'
@@ -23,6 +24,7 @@ function PublicSite() {
       <Hero />
       <Services />
       <Academic />
+      <ProjectEstimator />
       <CustomBanner />
       <WhyUs />
       <Packages />

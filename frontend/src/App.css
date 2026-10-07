@@ -269,20 +269,109 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.badge-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pulse-btn {
+  position: relative;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pulse-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+}
+
 .hero-card-main {
-  width: 320px;
+  width: 330px;
   bottom: 20px;
-  left: 20px;
+  left: 15px;
   z-index: 2;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid #38bdf8;
+  animation: floatGentle 5s ease-in-out infinite;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
 }
 
 .hero-card-behind {
-  width: 290px;
-  top: 10px;
-  right: 10px;
+  width: 300px;
+  top: 15px;
+  right: 15px;
   z-index: 1;
-  opacity: 0.6;
+  opacity: 0.85;
+  animation: floatGentle 6s ease-in-out infinite reverse;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.live-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #34d399;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-card-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
 }
 
 .hero-card-title {
@@ -305,17 +394,17 @@
   color: #38bdf8;
 }
 
-.hero-pill {
+.hero-pill-feature {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #34d399;
-  padding: 5px 12px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #7dd3fc;
+  padding: 6px 12px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 14px;
 }
 
@@ -445,6 +534,261 @@
   font-size: 0.86rem;
   line-height: 1.55;
   margin: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4.5. INTERACTIVE PROJECT ESTIMATOR & SCOPE CONFIGURATOR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.estimator-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08);
+  padding: 40px;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+}
+
+.estimator-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.estimator-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.estimator-group {
+  margin-bottom: 28px;
+}
+
+.estimator-label {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.estimator-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.estimator-pill {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.estimator-pill:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+  color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.estimator-pill.active {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.estimator-cards-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.estimator-subcard {
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.estimator-subcard:hover {
+  border-color: #93c5fd;
+  background: #f1f5f9;
+}
+
+.estimator-subcard.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+}
+
+.subcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.subcard-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.estimator-subcard p {
+  font-size: 0.84rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.estimator-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.estimator-check-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.estimator-check-label:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+.estimator-check-label input {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* Glassmorphism Summary Panel Inspired by Instagram reel */
+.estimator-summary-panel {
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 20px;
+  padding: 34px 30px;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summary-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.summary-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.summary-scope-badge {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin-bottom: 22px;
+}
+
+.summary-metric-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+.summary-metric .metric-label {
+  display: block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.summary-metric .metric-val {
+  font-size: 1.15rem;
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.summary-checklist h4 {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #cbd5e1;
+  margin-bottom: 14px;
+}
+
+.summary-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-checklist li {
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-dot {
+  color: #38bdf8;
+  font-size: 0.8rem;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1663,6 +2007,10 @@ textarea.form-control {
   .enquiry-wrapper {
     grid-template-columns: 1fr;
   }
+  .estimator-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
   .admin-summary {
     grid-template-columns: 1fr 1fr;
   }
@@ -1671,6 +2019,16 @@ textarea.form-control {
 @media (max-width: 768px) {
   .section, .section-alt, .section-dark, .section-deep {
     padding: 72px 0;
+  }
+  .estimator-card {
+    padding: 24px 18px;
+  }
+  .estimator-pills {
+    flex-direction: column;
+  }
+  .estimator-pill {
+    width: 100%;
+    text-align: left;
   }
   .navbar-links, .navbar-cta {
     display: none;

@@ -111,11 +111,21 @@ export default function EnquiryForm() {
         return
       }
 
+      // Automatically trigger WhatsApp tab so enquiry details are sent directly to Admin
+      if (data.waLinks?.admin1?.url) {
+        try {
+          window.open(data.waLinks.admin1.url, '_blank')
+        } catch {
+          // popup blocked, fallback buttons shown below
+        }
+      }
+
       setSuccessData({
         enquiryId: data.enquiryId,
         waLinks: data.waLinks,
         clientName: form.name,
         service: form.service,
+        urgentAlertText: data.urgentAlertText,
       })
       setForm(INITIAL)
     } catch {
@@ -133,41 +143,41 @@ export default function EnquiryForm() {
           {/* Left Information Column */}
           <div className="enquiry-info">
             <span className="section-badge-dark">
-              ⚡ FAST CONSULTATION &amp; QUOTE
+              ⚡ PRIORITY ESTIMATION &amp; CONSULTATION
             </span>
-            <h2>Have a Project in Mind? Let&apos;s Build It Together.</h2>
+            <h2>Let&apos;s Build Your Project With Guaranteed Excellence.</h2>
             <p>
-              Submit your requirements below. Every project is reviewed by our technical leads,
-              stored securely in our database, and triggers an <strong>immediate urgent alert to our administrators</strong> for rapid follow-up.
+              Submit your project requirements below. Our technical leads will analyze your requirements
+              and get back to you within minutes with an exact project blueprint, milestone plan, and quotation.
             </p>
 
             <div className="contact-items">
               <div className="contact-item">
                 <div className="contact-item-icon">⚡</div>
                 <div>
-                  <strong>Urgent Admin Alert</strong>
-                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Both administrators are notified instantly upon submission</div>
-                </div>
-              </div>
-              <div className="contact-item">
-                <div className="contact-item-icon">💬</div>
-                <div>
-                  <strong>WhatsApp &amp; Phone Consultation</strong>
-                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Direct discussion on requirements, scope, and timeline</div>
+                  <strong>Rapid 15-Minute Response</strong>
+                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Direct call or WhatsApp chat from lead engineers</div>
                 </div>
               </div>
               <div className="contact-item">
                 <div className="contact-item-icon">🎓</div>
                 <div>
-                  <strong>100% Customized Academic Delivery</strong>
-                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Complete source code, documentation, PPT &amp; viva guidance</div>
+                  <strong>Complete Viva &amp; Code Preparation</strong>
+                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Source code, step-by-step setup, IEEE documentation &amp; presentation PPT</div>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-item-icon">🛡️</div>
+                <div>
+                  <strong>100% Working Execution Guarantee</strong>
+                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Tested and verified directly on your computer before submission</div>
                 </div>
               </div>
               <div className="contact-item">
                 <div className="contact-item-icon">📍</div>
                 <div>
-                  <strong>Local Hubs in Kadapa &amp; Rayachoti</strong>
-                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Serving students and businesses across Andhra Pradesh &amp; online</div>
+                  <strong>Centers in Kadapa &amp; Rayachoti</strong>
+                  <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Direct local support &amp; worldwide online delivery</div>
                 </div>
               </div>
             </div>
@@ -177,31 +187,86 @@ export default function EnquiryForm() {
           <div className="enquiry-form-card">
             {successData ? (
               <div className="form-success-card">
-                <div className="success-icon-badge">✅</div>
+                <div className="success-icon-badge">🎉</div>
                 <h3 style={{ fontSize: '1.4rem', color: '#0f172a', marginBottom: '8px' }}>
-                  Enquiry Submitted Successfully!
+                  Project Request Confirmed!
                 </h3>
                 <p style={{ color: '#64748b', fontSize: '0.94rem', margin: 0 }}>
-                  Thank you, <strong>{successData.clientName}</strong>. Your enquiry has been permanently saved to our database.
+                  Thank you, <strong>{successData.clientName}</strong>! Your requirements have been received and our engineering team is reviewing your project details.
                 </p>
 
-                <div className="success-id-pill">
-                  Reference ID: #{successData.enquiryId}
+                <div className="success-id-pill" style={{ margin: '14px 0', padding: '8px 16px', background: '#eff6ff', color: '#2563eb', fontWeight: 700, borderRadius: '20px', display: 'inline-block' }}>
+                  Project Tracking ID: #{successData.enquiryId}
                 </div>
 
-                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '20px', margin: '20px 0', textAlign: 'center' }}>
-                  <p style={{ margin: 0, fontSize: '0.92rem', color: '#334155', lineHeight: 1.6 }}>
-                    Your requirements have been securely logged and dispatched to our administration team.
-                    We will review your scope and get in touch with you shortly.
+                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '16px', margin: '16px 0', textAlign: 'center' }}>
+                  <p style={{ margin: 0, fontSize: '0.9rem', color: '#334155', lineHeight: 1.5 }}>
+                    📲 <strong>Need Immediate Confirmation?</strong><br />
+                    Click below to open WhatsApp with your pre-filled project details directly to our senior project administrators:
                   </p>
                 </div>
 
+                {/* Instant Dual WhatsApp Action Buttons */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '16px 0' }}>
+                  {successData.waLinks?.admin1?.url && (
+                    <a
+                      href={successData.waLinks.admin1.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-wa-admin1"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        background: '#25D366',
+                        color: '#ffffff',
+                        padding: '13px 20px',
+                        borderRadius: '10px',
+                        fontWeight: 700,
+                        fontSize: '0.95rem',
+                        textDecoration: 'none',
+                        boxShadow: '0 4px 14px rgba(37,211,102,0.3)',
+                        transition: 'transform 0.2s ease',
+                      }}
+                    >
+                      💬 Send Details to Admin 1 (P. Asma — {successData.waLinks.admin1.phone}) &rarr;
+                    </a>
+                  )}
+
+                  {successData.waLinks?.admin2?.url && (
+                    <a
+                      href={successData.waLinks.admin2.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-wa-admin2"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        background: '#075E54',
+                        color: '#ffffff',
+                        padding: '13px 20px',
+                        borderRadius: '10px',
+                        fontWeight: 700,
+                        fontSize: '0.95rem',
+                        textDecoration: 'none',
+                        boxShadow: '0 4px 14px rgba(7,94,84,0.3)',
+                        transition: 'transform 0.2s ease',
+                      }}
+                    >
+                      💬 Send Details to Admin 2 (K Reddy Basha — {successData.waLinks.admin2.phone}) &rarr;
+                    </a>
+                  )}
+                </div>
+
                 <button
-                  className="btn btn-primary"
-                  style={{ width: '100%', marginTop: '8px' }}
+                  className="btn btn-outline"
+                  style={{ width: '100%', marginTop: '10px' }}
                   onClick={() => setSuccessData(null)}
                 >
-                  Submit Another Enquiry
+                  Submit Another Project Request
                 </button>
               </div>
             ) : (

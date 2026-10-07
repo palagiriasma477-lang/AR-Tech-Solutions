@@ -48,11 +48,11 @@ export default function Portfolio() {
     <section className="section" id="portfolio">
       <div className="container">
         <div className="text-center">
-          <span className="section-badge">Project Capabilities</span>
-          <h2 className="section-title">Technical Demonstrations &amp; Blueprints</h2>
+          <span className="section-badge">✨ Live Project Showcase</span>
+          <h2 className="section-title">Proven Project Blueprints Ready for Delivery</h2>
           <p className="section-sub">
-            Representative sample architectures and project prototypes ready to be customized
-            to your academic syllabus or specific business workflow.
+            Explore ready-to-deploy software architectures and academic project frameworks.
+            Every project includes 100% working source code, PPT presentation, and comprehensive documentation tailored to your requirements.
           </p>
         </div>
 
