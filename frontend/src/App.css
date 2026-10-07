@@ -926,12 +926,12 @@
    4.5. INTERACTIVE PROJECT ESTIMATOR & SCOPE CONFIGURATOR
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .estimator-card {
-  max-width: 1140px;
+  max-width: 1100px;
   margin: 32px auto 0;
-  background: #ffffff;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 17, 33, 0.98) 100%);
   border-radius: 24px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
   padding: 40px;
   transition: all 0.3s ease;
 }
@@ -956,7 +956,7 @@
   display: block;
   font-size: 0.96rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
   margin-bottom: 12px;
 }
 
@@ -969,28 +969,28 @@
 .estimator-pill {
   padding: 10px 18px;
   border-radius: 12px;
-  border: 1.5px solid #e2e8f0;
-  background: #f8fafc;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
   font-size: 0.88rem;
   font-weight: 600;
-  color: #475569;
+  color: #cbd5e1;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
 }
 
 .estimator-pill:hover {
-  border-color: #93c5fd;
-  background: #eff6ff;
-  color: #1d4ed8;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(37, 99, 235, 0.15);
+  color: #38bdf8;
   transform: translateY(-2px);
 }
 
 .estimator-pill.active {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #1d4ed8, #0284c7);
   color: #ffffff;
-  border-color: #2563eb;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+  border-color: #38bdf8;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
   transform: translateY(-2px);
 }
 
@@ -1003,21 +1003,21 @@
 .estimator-subcard {
   padding: 16px 20px;
   border-radius: 14px;
-  border: 1.5px solid #e2e8f0;
-  background: #f8fafc;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .estimator-subcard:hover {
-  border-color: #93c5fd;
-  background: #f1f5f9;
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(37, 99, 235, 0.08);
 }
 
 .estimator-subcard.active {
-  border-color: #2563eb;
-  background: #eff6ff;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+  border-color: #38bdf8;
+  background: rgba(37, 99, 235, 0.18);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
 }
 
 .subcard-header {
@@ -1025,8 +1025,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4px;
-  color: #0f172a;
+  color: #ffffff;
   font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .subcard-check {
@@ -1036,15 +1037,15 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #2563eb;
-  color: #ffffff;
+  background: #38bdf8;
+  color: #080f1d;
   font-size: 0.75rem;
   font-weight: 800;
 }
 
 .estimator-subcard p {
   font-size: 0.84rem;
-  color: #64748b;
+  color: #94a3b8;
   margin: 0;
   line-height: 1.45;
 }
@@ -1061,18 +1062,18 @@
   gap: 12px;
   font-size: 0.92rem;
   font-weight: 500;
-  color: #334155;
+  color: #cbd5e1;
   cursor: pointer;
   padding: 10px 14px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   transition: all 0.2s ease;
 }
 
 .estimator-check-label:hover {
-  border-color: #cbd5e1;
-  background: #f1f5f9;
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(37, 99, 235, 0.08);
 }
 
 .estimator-check-label input {
@@ -2274,10 +2275,11 @@
 }
 
 .enquiry-form-card {
-  background: #ffffff;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 17, 33, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
   padding: 44px 38px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
   position: relative;
 }
 
@@ -2297,7 +2299,7 @@
 .form-group label {
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--text-headline);
+  color: #e2e8f0;
 }
 
 .form-group span.req {
@@ -2308,20 +2310,25 @@
 .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 1.5px solid var(--border-light);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   font-size: 0.92rem;
   font-family: var(--font-body);
-  color: var(--text-headline);
-  background: #f8fafc;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
   transition: var(--transition);
   outline: none;
 }
 
 .form-control:focus {
-  border-color: var(--accent-primary);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: #38bdf8;
+  background: rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.form-control option {
+  background: #0f172a;
+  color: #ffffff;
 }
 
 textarea.form-control {
@@ -2332,7 +2339,7 @@ textarea.form-control {
 .form-submit {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
   color: #ffffff;
   border: none;
   border-radius: var(--radius-full);
@@ -2340,12 +2347,13 @@ textarea.form-control {
   font-weight: 700;
   transition: var(--transition);
   margin-top: 10px;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 .form-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.5);
+  filter: brightness(1.08);
 }
 
 .form-submit:disabled {
