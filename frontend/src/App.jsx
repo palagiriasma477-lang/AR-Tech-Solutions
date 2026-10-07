@@ -7,6 +7,8 @@ import Services from './components/Services'
 import Academic from './components/Academic'
 import ProjectEstimator from './components/ProjectEstimator'
 import CustomBanner from './components/CustomBanner'
+import MarqueeTicker from './components/MarqueeTicker'
+import TrustStrip from './components/TrustStrip'
 import WhyUs from './components/WhyUs'
 import Packages from './components/Packages'
 import Process from './components/Process'
@@ -22,14 +24,16 @@ function PublicSite() {
     <div className="page-wrapper">
       <Navbar />
       <Hero />
+      <MarqueeTicker />
       <Services />
       <Academic />
       <ProjectEstimator />
       <CustomBanner />
-      <WhyUs />
+      <TrustStrip />
       <Packages />
       <Process />
       <Portfolio />
+      <WhyUs />
       <EnquiryForm />
       <Contact />
       <Footer />
