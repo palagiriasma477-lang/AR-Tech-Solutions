@@ -6,41 +6,40 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-badge">
             <span className="badge-pulse"></span>
-            ⚡ Fast-Track Academic &amp; Enterprise Project Solutions
+            ⚡ Enterprise Software Engineering &amp; Commercial Digital Solutions
           </div>
 
           <h1>
-            Turn Your Ideas Into<br />
-            <span className="text-gradient">High-Impact Software.</span>
+            Full-Stack Digital Products &amp;<br />
+            <span className="text-gradient">High-Reliability Software Systems.</span>
           </h1>
 
           <p>
-            Get industry-grade Web &amp; Mobile Applications, AI/ML Systems, and Academic Engineering Projects
-            built directly to your syllabus or business workflow. 100% running code, comprehensive documentation,
-            and personal viva guidance guaranteed.
+            From venture-backed startups and commercial enterprises to academic engineering breakthroughs:
+            we design, build, and deploy high-performance web platforms, mobile apps, AI/ML models, and bespoke cloud architectures with guaranteed execution.
           </p>
 
           <div className="hero-btns">
             <a href="#packages" className="btn btn-primary pulse-btn">
-              ⭐ Choose a Package &amp; Get Quote
+              ⭐ Explore Solutions &amp; Packages
             </a>
             <a href="#estimator" className="btn btn-outline-dark">
-              ⚡ Configure Your Project (Live)
+              ⚡ Live Project Scope Calculator
             </a>
           </div>
 
           <div className="hero-stats">
             <div className="hero-stat">
-              <h3>48–72h</h3>
-              <p>Express Project Delivery</p>
+              <h3>99.9%</h3>
+              <p>Production Uptime &amp; SLA</p>
             </div>
             <div className="hero-stat">
               <h3>100%</h3>
-              <p>Working Code &amp; Viva Ready</p>
+              <p>Source Code Ownership</p>
             </div>
             <div className="hero-stat">
-              <h3>1-on-1</h3>
-              <p>Direct Screen Share Setup</p>
+              <h3>48–72h</h3>
+              <p>Rapid MVP &amp; Sprint Delivery</p>
             </div>
           </div>
         </div>
